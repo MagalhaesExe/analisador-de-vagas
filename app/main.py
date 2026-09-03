@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 from app.agent.comparador import comparar_e_julgar
 from app.agent.extrator import extrair_vaga
@@ -9,6 +10,8 @@ app = FastAPI(
     title="Analisador de Vagas",
     description="Agente que compara uma vaga e um currículo e devolve match score, skills faltando e red flags.",
 )
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.post("/analisar", response_model=AnalisarResponse)
