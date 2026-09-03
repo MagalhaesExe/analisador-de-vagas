@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Analisador de Vagas — página de teste</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; }
+  .campo { margin-bottom: 1.5rem; }
+  label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+  textarea { width: 100%; height: 160px; font-family: monospace; font-size: 0.85rem; box-sizing: border-box; padding: 0.5rem; }
+  input[type="file"] { margin-top: 0.4rem; }
+  .status { font-size: 0.8rem; color: #666; margin-top: 0.2rem; min-height: 1.2em; }
+  button { font-size: 1rem; padding: 0.6rem 1.4rem; cursor: pointer; }
+  button:disabled { cursor: not-allowed; opacity: 0.6; }
+  pre#resultado { background: #f4f4f4; padding: 1rem; overflow-x: auto; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
+  .erro { color: #b00020; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>Analisador de Vagas — página de teste</h1>
+<p>Cole o texto direto, ou faça upload de um arquivo <code>.txt</code> ou <code>.pdf</code> (o PDF é lido no navegador, o texto extraído aparece na caixa abaixo).</p>
+
+<div class="campo">
+  <label for="vaga-texto">Vaga</label>
+  <textarea id="vaga-texto" placeholder="Cole o texto da vaga aqui..."></textarea>
+  <input type="file" id="vaga-arquivo" accept=".txt,.pdf">
+  <div class="status" id="vaga-status"></div>
+</div>
+
+<div class="campo">
+  <label for="curriculo-texto">Currículo</label>
+  <textarea id="curriculo-texto" placeholder="Cole o texto do currículo aqui..."></textarea>
+  <input type="file" id="curriculo-arquivo" accept=".txt,.pdf">
+  <div class="status" id="curriculo-status"></div>
+</div>
+
+<button id="btn-analisar">Analisar</button>
+<div class="status" id="analise-status"></div>
+
+<h2>Resultado</h2>
+<pre id="resultado">(nada ainda)</pre>
+
+<script type="module">
+  import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.3.289/pdf.min.mjs";
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.3.289/pdf.worker.min.mjs";
+
+  async function extrairTextoPdf(arrayBuffer) {
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    const paginas = [];
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const pagina = await pdf.getPage(i);
+      const conteudo = await pagina.getTextContent();
+      const textoPagina = conteudo.items.map((item) => item.str).join(" ");
+      paginas.push(textoPagina);
+    }
+    return paginas.join("\n\n");
+  }
+
+  function configurarUpload(inputId, textareaId, statusId) {
+    const input = document.getElementById(inputId);
+    const textarea = document.getElementById(textareaId);
+    const status = document.getElementById(statusId);
+
+    input.addEventListener("change", async () => {
+      const arquivo = input.files[0];
+      if (!arquivo) return;
+
+      status.textContent = `Lendo ${arquivo.name}...`;
+      status.classList.remove("erro");
+
+      try {
+        if (arquivo.name.toLowerCase().endsWith(".pdf")) {
+          const buffer = await arquivo.arrayBuffer();
+          textarea.value = await extrairTextoPdf(buffer);
+        } else {
+          textarea.value = await arquivo.text();
+        }
+        status.textContent = `${arquivo.name} carregado (${textarea.value.length} caracteres).`;
+      } catch (erro) {
+        status.textContent = `Erro ao ler o arquivo: ${erro.message}`;
+        status.classList.add("erro");
+      }
+    });
+  }
+
+  configurarUpload("vaga-arquivo", "vaga-texto", "vaga-status");
+  configurarUpload("curriculo-arquivo", "curriculo-texto", "curriculo-status");
+
+  document.getElementById("btn-analisar").addEventListener("click", async () => {
+    const vaga_texto = document.getElementById("vaga-texto").value.trim();
+    const curriculo = document.getElementById("curriculo-texto").value.trim();
+    const analiseStatus = document.getElementById("analise-status");
+    const resultado = document.getElementById("resultado");
+    const botao = document.getElementById("btn-analisar");
+
+    if (!vaga_texto || !curriculo) {
+      analiseStatus.textContent = "Preencha a vaga e o currículo antes de analisar.";
+      analiseStatus.classList.add("erro");
+      return;
+    }
+
+    botao.disabled = true;
+    analiseStatus.classList.remove("erro");
+    analiseStatus.textContent = "Analisando... (pode levar alguns segundos)";
+    resultado.textContent = "";
+
+    try {
+      const resposta = await fetch("/analisar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ vaga_texto, curriculo }),
+      });
+
+      const corpo = await resposta.json();
+      if (!resposta.ok) {
+        throw new Error(JSON.stringify(corpo, null, 2));
+      }
+
+      resultado.textContent = JSON.stringify(corpo, null, 2);
+      analiseStatus.textContent = "Análise concluída.";
+    } catch (erro) {
+      analiseStatus.textContent = "Erro na análise — veja detalhes abaixo.";
+      analiseStatus.classList.add("erro");
+      resultado.textContent = erro.message;
+    } finally {
+      botao.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
