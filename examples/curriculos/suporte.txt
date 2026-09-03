@@ -1,0 +1,41 @@
+Alex Magalhães da Silva Junior
+Suporte Técnico de TI
+Campo Mourão - PR | +55 (98) 98220-1831 | alexmagalhaesjr15@gmail.com
+LinkedIn: linkedin.com/in/alexmagalhaesjr | GitHub: github.com/MagalhaesExe | Portfólio: portfolio-frontend-sagegamma.vercel.app
+
+RESUMO PROFISSIONAL
+Profissional em formação em Ciência da Computação (UTFPR), com experiência em suporte técnico N1 e manutenção de
+infraestrutura de redes FTTH, incluindo configuração de ONU's e CTO's, atendimento e registro de chamados técnicos, e atualização
+de documentação técnica. Conhecimento prático de protocolos de rede, cabeamento estruturado e comandos básicos de Linux,
+com atenção à estabilidade e continuidade das operações. Comunicativo, organizado e com facilidade de aprendizado. Como
+diferencial, possui lógica de programação sólida, construindo sistemas web e mobile em projetos pessoais — o que agiliza o
+diagnóstico de problemas também em nível de aplicação, não só de infraestrutura.
+
+EXPERIÊNCIA PROFISSIONAL
+Estagiário de Suporte de Redes | StarNet, Santa Inês - MA | Set/2022 – Dez/2022
+- Suporte técnico (N1) e manutenção de rotas de tráfego de rede, garantindo a estabilidade da infraestrutura.
+- Atendimento e registro de chamados técnicos, com análise e atualização de documentação técnica.
+- Manutenção e configuração de ONU's e CTO's em redes FTTH, aplicando protocolos de rede.
+- Auxílio na organização de infraestrutura física, incluindo cabeamento e equipamentos.
+
+COMPETÊNCIAS TÉCNICAS
+- Redes & Infraestrutura: Protocolos de rede, Redes FTTH, Configuração de ONU's e CTO's, Cabeamento estruturado, Linux
+  (comandos básicos)
+- Suporte & Atendimento: Suporte técnico N1, Abertura e registro de chamados, Documentação técnica, Organização de
+  infraestrutura física
+- Ferramentas: Git/GitHub, Docker
+- Programação (diferencial técnico): Python, JavaScript, Node.js, C e C++
+- Soft Skills: Facilidade de aprendizado, Resolução de problemas, Proatividade
+- Idiomas: Português (nativo), Inglês (Intermediário)
+
+FORMAÇÃO ACADÊMICA
+Bacharelado em Ciência da Computação — UTFPR (2023 – previsão de conclusão: Dez/2027), Campo Mourão - PR
+Ensino Médio e Técnico em Informática para Internet — IEMA (2020 – 2022), Santa Inês - MA
+
+CURSOS COMPLEMENTARES
+Soluções de IA no GitHub (15h) — Fundação Bradesco / Microsoft (2026)
+
+PROJETOS PESSOAIS (DIFERENCIAL TÉCNICO)
+Desenvolve projetos pessoais de software para aprofundar lógica de programação e entendimento de sistemas: DoaUTF (app
+mobile em Flutter com API RESTful em Node.js), Gestão Sinuca — sistema de gestão financeira (React + FastAPI) e Gerador de
+Senhas Seguro (JavaScript). Repositórios completos disponíveis no GitHub.

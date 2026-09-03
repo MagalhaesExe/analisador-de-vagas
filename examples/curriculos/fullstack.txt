@@ -1,0 +1,54 @@
+Alex Magalhães da Silva Junior
+Desenvolvedor Full-Stack
+Campo Mourão - PR | +55 (98) 98220-1831 | alexmagalhaesjr15@gmail.com
+LinkedIn: linkedin.com/in/alexmagalhaesjr | GitHub: github.com/MagalhaesExe | Portfólio: portfolio-frontend-sagegamma.vercel.app
+
+RESUMO PROFISSIONAL
+Desenvolvedor Full-Stack em formação (Ciência da Computação — UTFPR), com experiência prática construindo produtos
+completos: interfaces em React, Vite e Tailwind CSS conectadas a APIs próprias em Node.js/Express e Python (FastAPI), com
+PostgreSQL e deploy em produção (Vercel/Render). Confortável transitando entre as camadas de um sistema, do banco de dados à
+interface do usuário, com atenção a responsividade, validação, segurança e organização de código. Aprendizado rápido e autônomo
+de novas tecnologias, com histórico de entregas também em Flutter e Vue.js.
+
+COMPETÊNCIAS TÉCNICAS
+- Front-end: React, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Vite, Context API, Design Responsivo
+- Back-end: Node.js, Express.js, Python (FastAPI), APIs REST, Autenticação (JWT), Validação de dados (Joi)
+- Banco de Dados: PostgreSQL, MySQL, SQLAlchemy
+- Infraestrutura & DevOps: Docker, Docker Compose, Nginx, Git/GitHub, Swagger/OpenAPI, Vercel, Render
+- Mobile & Outros: Flutter, Dart, C e C++
+- Idiomas: Português (nativo), Inglês (Intermediário)
+
+PROJETOS
+Portfólio Pessoal (Full-Stack: React + Node.js) — github.com/MagalhaesExe/portfolio-frontend
+Stack: Frontend: React 18, Vite, Tailwind CSS, Axios, Context API · Backend: Node.js, Express, PostgreSQL, Joi, Winston, Swagger
+- Site pessoal full-stack em produção (frontend na Vercel, API própria no Render), com arquitetura modular em
+  components/context/services/hooks e camada de serviços dedicada para chamadas de API.
+- Tema claro/escuro dinâmico com persistência local e layout mobile-first com menu adaptativo.
+- API REST documentada via Swagger, com validação (Joi), rate limiting e logging estruturado (Winston); formulário de contato
+  integrado a serviço de e-mail transacional (Resend).
+
+Gestão Sinuca — Sistema de Gestão Financeira (Full-Stack: React + FastAPI) — github.com/MagalhaesExe/gestao_sinuca
+Stack: React + Vite, FastAPI, SQLAlchemy, Docker, Docker Compose, Nginx
+- Sistema full-stack para negócio real, com interface web responsiva e API REST documentada (Swagger).
+- Geração automatizada de recibos em PDF e autenticação por token, em ambiente containerizado com Docker Compose.
+
+DoaUTF — Aplicativo de Doações (Full-Stack: Flutter + Node.js) — github.com/Dev-movel/Frontend-DoaUTF
+Stack: Mobile: Flutter, Dart · Backend: Node.js, Express, PostgreSQL, JWT
+- Co-desenvolvimento de aplicativo mobile (Android/iOS) para plataforma de doação entre alunos da UTFPR, integrado a API
+  RESTful própria.
+- No app mobile: implementação de login/autenticação, lógica de logística, agendamento e fluxo de entrega, sistema de
+  avaliações entre usuários e painel de gerenciamento de perfil.
+- Na API: contribuição com autenticação JWT, dashboard de usuário e sistema de feedbacks entre usuários. Versionamento
+  disciplinado com Git/GitHub, seguindo boas práticas de arquitetura e clean code.
+
+EXPERIÊNCIA PROFISSIONAL
+Estagiário de Suporte de Redes | StarNet, Santa Inês - MA | Set/2022 – Dez/2022
+- Suporte técnico (N1) e manutenção de rotas de tráfego de rede, com atendimento e registro de chamados técnicos.
+- Análise e atualização de documentação técnica; manutenção e configuração de equipamentos em redes FTTH.
+
+FORMAÇÃO ACADÊMICA
+Bacharelado em Ciência da Computação — UTFPR (2023 – previsão de conclusão: Dez/2027), Campo Mourão - PR
+Ensino Médio e Técnico em Informática para Internet — IEMA (2020 – 2022), Santa Inês - MA
+
+CURSOS COMPLEMENTARES
+Soluções de IA no GitHub (15h) — Fundação Bradesco / Microsoft (2026)

@@ -1,0 +1,55 @@
+Alex Magalhães da Silva Junior
+Desenvolvedor Front-End
+Campo Mourão - PR | +55 (98) 98220-1831 | alexmagalhaesjr15@gmail.com
+LinkedIn: linkedin.com/in/alexmagalhaesjr | GitHub: github.com/MagalhaesExe | Portfólio: portfolio-frontend-sagegamma.vercel.app
+
+RESUMO PROFISSIONAL
+Desenvolvedor Front-End em formação (Ciência da Computação — UTFPR), com experiência prática na construção de interfaces
+com React, Vite e Tailwind CSS, consumo de APIs REST com Axios e deploy de aplicações em produção (Vercel/Render). Desenvolve
+projetos completos, do componente de interface até a API que o alimenta, com atenção à responsividade, usabilidade e
+organização de código. Aprendizado rápido e autônomo de novas tecnologias, com histórico de entregas em Flutter, Vue.js e Python
+além do stack principal em React.
+
+COMPETÊNCIAS TÉCNICAS
+- Front-end: React, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Vite, Context API, Custom Hooks, Design Responsivo
+- Consumo de dados: Axios, REST APIs, tratamento de estados assíncronos e de erro
+- Ferramentas & DevOps: Git/GitHub, Docker, Docker Compose, Swagger/OpenAPI, Vercel, Render
+- Back-end & Outros: Node.js, Express.js, Python (FastAPI), PostgreSQL, MySQL, Flutter/Dart, C e C++
+- Idiomas: Português (nativo), Inglês (Intermediário)
+
+PROJETOS
+Portfólio Pessoal (React + Node.js) — github.com/MagalhaesExe/portfolio-frontend
+Stack: React 18, Vite, Tailwind CSS, Axios, Context API · Backend: Node.js, Express, PostgreSQL, Swagger
+- Site pessoal em produção (Vercel), com arquitetura modular em components/context/services/hooks e camada de serviços
+  dedicada para chamadas de API.
+- Tema claro/escuro dinâmico com persistência local e layout mobile-first com menu adaptativo.
+- Formulário de contato integrado a API própria (Node/Express/PostgreSQL), com validação, rate limiting e documentação
+  Swagger — backend hospedado no Render.
+
+Gestão Sinuca — Sistema de Gestão Financeira (React + FastAPI) — github.com/MagalhaesExe/gestao_sinuca
+Stack: React + Vite, FastAPI, SQLAlchemy, Docker, Docker Compose, Nginx
+- Sistema full-stack para negócio real, com geração automatizada de recibos em PDF e autenticação por token.
+- Interface web responsiva consumindo API REST documentada (Swagger), com ambiente containerizado via Docker Compose.
+
+DoaUTF — Aplicativo de Doações (Flutter + Node.js) — github.com/Dev-movel/Frontend-DoaUTF
+Stack: Flutter, Dart · Backend: Node.js, Express (API RESTful)
+- Atuação ponta a ponta (full-stack) em app mobile para Android e iOS que conecta alunos da UTFPR para doação.
+- Implementação de login/autenticação, lógica de logística e agendamento, sistema de avaliações entre usuários e painel de
+  gerenciamento de perfil.
+
+Gerador de Senhas Seguro (JavaScript) — github.com/MagalhaesExe/Password_generator
+Stack: HTML5, CSS3, JavaScript (ES6+)
+- Ferramenta de geração de senhas fortes e customizáveis, com indicador de força, modo escuro (LocalStorage) e design
+  responsivo.
+
+EXPERIÊNCIA PROFISSIONAL
+Estagiário de Suporte de Redes | StarNet, Santa Inês - MA | Set/2022 – Dez/2022
+- Suporte técnico (N1) e manutenção de rotas de tráfego de rede, com atendimento e registro de chamados técnicos.
+- Análise e atualização de documentação técnica; manutenção e configuração de equipamentos em redes FTTH.
+
+FORMAÇÃO ACADÊMICA
+Bacharelado em Ciência da Computação — UTFPR (2023 – previsão de conclusão: Dez/2027), Campo Mourão - PR
+Ensino Médio e Técnico em Informática para Internet — IEMA (2020 – 2022), Santa Inês - MA
+
+CURSOS COMPLEMENTARES
+Soluções de IA no GitHub (15h) — Fundação Bradesco / Microsoft (2026)

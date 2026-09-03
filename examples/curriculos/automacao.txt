@@ -1,0 +1,51 @@
+Alex Magalhães da Silva Junior
+Automação de Processos & IA
+Campo Mourão - PR | +55 (98) 98220-1831 | alexmagalhaesjr15@gmail.com
+LinkedIn: linkedin.com/in/alexmagalhaesjr | GitHub: github.com/MagalhaesExe | Portfólio: portfolio-frontend-sagegamma.vercel.app
+
+RESUMO PROFISSIONAL
+Profissional em formação em Ciência da Computação (UTFPR), com experiência prática em Python (FastAPI), Node.js e integração
+de APIs REST, construindo lógica de automação para geração automática de documentos, autenticação e fluxos de processo em
+projetos reais. Uso diário de ferramentas de IA agêntica (GitHub Copilot, Claude Code, ChatGPT, Gemini) no fluxo de
+desenvolvimento, com capacidade de validar criticamente código e conteúdo gerado por IA. Versionamento disciplinado com
+Git/GitHub e aprendizado rápido e autônomo de novas tecnologias, buscando aprofundar a construção de agentes de IA e a
+otimização de processos.
+
+COMPETÊNCIAS TÉCNICAS
+- Automação & Integração: Python (FastAPI), Node.js, Express.js, APIs REST, Automação de geração de documentos e fluxos de
+  processo
+- IA & Ferramentas Agênticas: GitHub Copilot, Claude Code, ChatGPT, Gemini, validação crítica de conteúdo gerado por IA
+- Banco de Dados: PostgreSQL, MySQL, SQLAlchemy
+- Infraestrutura & Ferramentas: Docker, Docker Compose, Git/GitHub, Linux (comandos básicos)
+- Front-end & Mobile (complementar): React, JavaScript, Flutter/Dart
+- Idiomas: Português (nativo), Inglês (Intermediário)
+
+PROJETOS
+Gestão Sinuca — Automação de Recibos (FastAPI + React) — github.com/MagalhaesExe/gestao_sinuca
+Stack: FastAPI, SQLAlchemy, Docker, Docker Compose, Nginx
+- Automação da geração de recibos em PDF para um negócio real, eliminando um processo manual repetitivo.
+- API REST documentada (Swagger), com autenticação por token e ambiente containerizado via Docker Compose para deploy
+  consistente.
+
+Portfólio Pessoal — Integração de APIs (Node.js + Express) — github.com/MagalhaesExe/portfolio-backend
+Stack: Node.js, Express, PostgreSQL, Joi, Winston, Swagger, Resend
+- API REST documentada via Swagger, com validação de dados (Joi) e logging estruturado (Winston).
+- Integração com serviço de e-mail transacional (Resend) para automatizar notificações do formulário de contato.
+
+DoaUTF — API Backend (Node.js + Express) — github.com/Dev-movel/Backend-DoaUTF
+Stack: Node.js, Express, PostgreSQL, JWT
+- Co-desenvolvimento da API RESTful da plataforma de doação entre alunos da UTFPR, com responsabilidade por autenticação
+  JWT, dashboard de usuário e sistema de feedbacks entre usuários.
+- Versionamento disciplinado com Git/GitHub, seguindo boas práticas de arquitetura e clean code.
+
+EXPERIÊNCIA PROFISSIONAL
+Estagiário de Suporte de Redes | StarNet, Santa Inês - MA | Set/2022 – Dez/2022
+- Suporte técnico (N1) e manutenção de rotas de tráfego de rede, com atendimento e registro de chamados técnicos.
+- Análise e atualização de documentação técnica; manutenção e configuração de equipamentos em redes FTTH.
+
+FORMAÇÃO ACADÊMICA
+Bacharelado em Ciência da Computação — UTFPR (2023 – previsão de conclusão: Dez/2027), Campo Mourão - PR
+Ensino Médio e Técnico em Informática para Internet — IEMA (2020 – 2022), Santa Inês - MA
+
+CURSOS COMPLEMENTARES
+Soluções de IA no GitHub (15h) — Fundação Bradesco / Microsoft (2026)

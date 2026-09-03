@@ -1,0 +1,55 @@
+Alex Magalhães da Silva Junior
+Desenvolvedor Back-End
+Campo Mourão - PR | +55 (98) 98220-1831 | alexmagalhaesjr15@gmail.com
+LinkedIn: linkedin.com/in/alexmagalhaesjr | GitHub: github.com/MagalhaesExe | Portfólio: portfolio-frontend-sagegamma.vercel.app
+
+RESUMO PROFISSIONAL
+Desenvolvedor Back-End em formação (Ciência da Computação — UTFPR), com experiência prática na construção de APIs REST com
+Node.js, Express e Python (FastAPI), modelagem de dados com PostgreSQL, autenticação via JWT e deploy de aplicações em
+produção (Render). Desenvolve sistemas completos, da modelagem do banco de dados à documentação da API, com atenção a
+validação, segurança e organização de código. Aprendizado rápido e autônomo de novas tecnologias, com histórico de entregas em
+Docker e programação de baixo nível em C, incluindo um módulo de kernel Linux.
+
+COMPETÊNCIAS TÉCNICAS
+- Back-end: Node.js, Express.js, Python (FastAPI), APIs REST, Autenticação (JWT), Validação de dados (Joi)
+- Banco de Dados: PostgreSQL, MySQL, SQLAlchemy
+- Infraestrutura & DevOps: Docker, Docker Compose, Nginx, Git/GitHub, Swagger/OpenAPI, Render
+- Sistemas & Baixo Nível: C, C++, Módulos de Kernel Linux
+- Front-end & Mobile (complementar): React, JavaScript, Tailwind CSS, Flutter/Dart
+- Idiomas: Português (nativo), Inglês (Intermediário)
+
+PROJETOS
+Portfólio Pessoal — API Backend (Node.js + Express) — github.com/MagalhaesExe/portfolio-backend
+Stack: Node.js, Express, PostgreSQL, Joi, Winston, express-rate-limit, Swagger/OpenAPI, Resend
+- API REST em produção (Render), com documentação interativa via Swagger e endpoint de contato consumido pelo front-end
+  em React.
+- Validação de dados com Joi, rate limiting e logging estruturado com Winston.
+- Integração com serviço de e-mail transacional (Resend) para notificações do formulário de contato.
+
+Gestão Sinuca — Sistema de Gestão Financeira (FastAPI + React) — github.com/MagalhaesExe/gestao_sinuca
+Stack: FastAPI, SQLAlchemy, Docker, Docker Compose, Nginx
+- API REST para negócio real, com geração automatizada de recibos em PDF e autenticação por token.
+- Documentação interativa via Swagger e ambiente containerizado com Docker Compose.
+
+DoaUTF — API Backend (Node.js + Express) — github.com/Dev-movel/Backend-DoaUTF
+Stack: Node.js, Express, PostgreSQL (Docker), JWT, Swagger
+- Co-desenvolvimento da API RESTful do projeto DoaUTF (plataforma de doação entre alunos da UTFPR), com responsabilidade
+  por autenticação JWT, dashboard de usuário e sistema de feedbacks entre usuários.
+- Versionamento com Git/GitHub seguindo boas práticas de arquitetura e clean code.
+
+CryptoChannel — Módulo de Kernel Linux (C) — github.com/MagalhaesExe/linux-cryptochannel-module
+Stack: C, Linux Kernel API (kfifo, mutexes), Interface /proc
+- Driver de dispositivo de caractere para comunicação entre processos (IPC), com criptografia XOR integrada ao buffer do kernel.
+- Sincronização com mutexes para múltiplos produtores e script de teste de stress para validar concorrência.
+
+EXPERIÊNCIA PROFISSIONAL
+Estagiário de Suporte de Redes | StarNet, Santa Inês - MA | Set/2022 – Dez/2022
+- Suporte técnico (N1) e manutenção de rotas de tráfego de rede, com atendimento e registro de chamados técnicos.
+- Análise e atualização de documentação técnica; manutenção e configuração de equipamentos em redes FTTH.
+
+FORMAÇÃO ACADÊMICA
+Bacharelado em Ciência da Computação — UTFPR (2023 – previsão de conclusão: Dez/2027), Campo Mourão - PR
+Ensino Médio e Técnico em Informática para Internet — IEMA (2020 – 2022), Santa Inês - MA
+
+CURSOS COMPLEMENTARES
+Soluções de IA no GitHub (15h) — Fundação Bradesco / Microsoft (2026)
