@@ -12,7 +12,7 @@ from app.config import GEMINI_API_KEY
 
 _client = genai.Client(api_key=GEMINI_API_KEY)
 
-_MODEL = "gemini-3.6-flash"
+_MODEL = "gemini-3.1-flash-lite"
 
 
 def generate_structured[T: BaseModel](prompt: str, response_model: type[T]) -> T:
