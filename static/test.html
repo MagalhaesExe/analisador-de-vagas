@@ -2,45 +2,209 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Analisador de Vagas — página de teste</title>
+<title>Analisador de Vagas com IA</title>
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
-  h1 { font-size: 1.4rem; }
+  :root {
+    --cor-fundo: #f6f7f9;
+    --cor-card: #ffffff;
+    --cor-borda: #e3e5ea;
+    --cor-texto: #1a1a1a;
+    --cor-texto-suave: #5b6270;
+    --cor-primaria: #2f5fef;
+    --cor-boa: #1a9c5c;
+    --cor-media: #c98a00;
+    --cor-ruim: #d13c3c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    max-width: 880px;
+    margin: 2.5rem auto;
+    padding: 0 1.25rem 4rem;
+    color: var(--cor-texto);
+    background: var(--cor-fundo);
+    line-height: 1.5;
+  }
+  header { margin-bottom: 2rem; }
+  h1 { font-size: 1.6rem; margin: 0 0 0.35rem; }
+  header p { color: var(--cor-texto-suave); margin: 0; font-size: 0.95rem; }
+
+  .card {
+    background: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+
   .campo { margin-bottom: 1.5rem; }
-  label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
-  textarea { width: 100%; height: 160px; font-family: monospace; font-size: 0.85rem; box-sizing: border-box; padding: 0.5rem; }
-  input[type="file"] { margin-top: 0.4rem; }
-  .status { font-size: 0.8rem; color: #666; margin-top: 0.2rem; min-height: 1.2em; }
-  button { font-size: 1rem; padding: 0.6rem 1.4rem; cursor: pointer; }
-  button:disabled { cursor: not-allowed; opacity: 0.6; }
-  pre#resultado { background: #f4f4f4; padding: 1rem; overflow-x: auto; white-space: pre-wrap; word-break: break-word; border-radius: 4px; }
-  .erro { color: #b00020; font-weight: 600; }
+  .campo:last-child { margin-bottom: 0; }
+  label { display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.95rem; }
+  textarea {
+    width: 100%;
+    height: 150px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    resize: vertical;
+  }
+  input[type="file"] { margin-top: 0.5rem; font-size: 0.85rem; }
+  .status { font-size: 0.8rem; color: var(--cor-texto-suave); margin-top: 0.3rem; min-height: 1.2em; }
+
+  button#btn-analisar {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.7rem 1.6rem;
+    cursor: pointer;
+    background: var(--cor-primaria);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+  }
+  button#btn-analisar:disabled { cursor: not-allowed; opacity: 0.6; }
+  .erro { color: var(--cor-ruim) !important; font-weight: 600; }
+
+  #resultado-vazio { color: var(--cor-texto-suave); font-size: 0.9rem; }
+
+  .resultado-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .resultado-header h2 { margin: 0; font-size: 1.1rem; }
+
+  .score-num { font-size: 2.6rem; font-weight: 700; line-height: 1; }
+  .score-legenda { color: var(--cor-texto-suave); font-size: 0.85rem; margin-top: 0.2rem; }
+  .confianca-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .confianca-alta { background: #e3f7ec; color: var(--cor-boa); }
+  .confianca-media { background: #fdf2dd; color: var(--cor-media); }
+  .confianca-baixa { background: #fbe6e6; color: var(--cor-ruim); }
+
+  .confianca-bloco { text-align: right; cursor: help; }
+  .confianca-legenda {
+    font-size: 0.72rem;
+    color: var(--cor-texto-suave);
+    margin-top: 0.3rem;
+  }
+
+  .score-boa { color: var(--cor-boa); }
+  .score-media { color: var(--cor-media); }
+  .score-ruim { color: var(--cor-ruim); }
+
+  h3.secao-titulo { font-size: 0.95rem; margin: 0 0 0.6rem; }
+
+  .skills-lista { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-chip {
+    font-size: 0.82rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    background: #fbe6e6;
+    color: #8a2323;
+  }
+  .skill-parcial {
+    font-size: 0.82rem;
+    padding: 0.45rem 0.7rem;
+    border-radius: 6px;
+    background: #fdf2dd;
+    color: #6b4c00;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .skill-parcial strong { display: block; }
+
+  .redflag-card {
+    border-left: 3px solid var(--cor-ruim);
+    background: #fff6f6;
+    padding: 0.6rem 0.9rem;
+    border-radius: 4px;
+    margin-bottom: 0.6rem;
+  }
+  .redflag-card:last-child { margin-bottom: 0; }
+  .redflag-card .titulo { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem; }
+  .redflag-card .descricao { font-size: 0.85rem; color: var(--cor-texto-suave); }
+
+  .observacoes {
+    font-size: 0.88rem;
+    color: var(--cor-texto-suave);
+    font-style: italic;
+    border-top: 1px solid var(--cor-borda);
+    padding-top: 0.8rem;
+    margin-top: 0.8rem;
+  }
+
+  details.json-bruto { margin-top: 1rem; }
+  details.json-bruto summary {
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+  }
+  pre#json-raw {
+    background: #f4f4f4;
+    padding: 1rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
 </style>
 </head>
 <body>
 
-<h1>Analisador de Vagas — página de teste</h1>
-<p>Cole o texto direto, ou faça upload de um arquivo <code>.txt</code> ou <code>.pdf</code> (o PDF é lido no navegador, o texto extraído aparece na caixa abaixo).</p>
+<header>
+  <h1>Analisador de Vagas com IA</h1>
+  <p>Cole o texto da vaga e do currículo (ou envie um arquivo .txt/.pdf) para receber um match score, skills ausentes e possíveis red flags.</p>
+</header>
 
-<div class="campo">
-  <label for="vaga-texto">Vaga</label>
-  <textarea id="vaga-texto" placeholder="Cole o texto da vaga aqui..."></textarea>
-  <input type="file" id="vaga-arquivo" accept=".txt,.pdf">
-  <div class="status" id="vaga-status"></div>
+<div class="card">
+  <div class="campo">
+    <label for="vaga-texto">Vaga</label>
+    <textarea id="vaga-texto" placeholder="Cole o texto da vaga aqui..."></textarea>
+    <input type="file" id="vaga-arquivo" accept=".txt,.pdf">
+    <div class="status" id="vaga-status"></div>
+  </div>
+
+  <div class="campo">
+    <label for="curriculo-texto">Currículo</label>
+    <textarea id="curriculo-texto" placeholder="Cole o texto do currículo aqui..."></textarea>
+    <input type="file" id="curriculo-arquivo" accept=".txt,.pdf">
+    <div class="status" id="curriculo-status"></div>
+  </div>
+
+  <div class="campo">
+    <button id="btn-analisar">Analisar</button>
+    <div class="status" id="analise-status"></div>
+  </div>
 </div>
 
-<div class="campo">
-  <label for="curriculo-texto">Currículo</label>
-  <textarea id="curriculo-texto" placeholder="Cole o texto do currículo aqui..."></textarea>
-  <input type="file" id="curriculo-arquivo" accept=".txt,.pdf">
-  <div class="status" id="curriculo-status"></div>
+<div class="card" id="resultado-card">
+  <div class="resultado-header">
+    <h2>Resultado</h2>
+    <div class="confianca-bloco" id="confianca-bloco" hidden title="Indica se a análise teve dados suficientes e consistentes para ser confiável — não é uma nota do candidato.">
+      <span class="confianca-badge" id="confianca-badge"></span>
+      <div class="confianca-legenda">certeza da análise, não do candidato</div>
+    </div>
+  </div>
+  <div id="resultado-vazio">Nenhuma análise realizada ainda.</div>
+  <div id="resultado-formatado" hidden></div>
+  <details class="json-bruto" id="json-bruto" hidden>
+    <summary>Ver payload JSON completo</summary>
+    <pre id="json-raw"></pre>
+  </details>
 </div>
-
-<button id="btn-analisar">Analisar</button>
-<div class="status" id="analise-status"></div>
-
-<h2>Resultado</h2>
-<pre id="resultado">(nada ainda)</pre>
 
 <script type="module">
   import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.3.289/pdf.min.mjs";
@@ -89,12 +253,87 @@
   configurarUpload("vaga-arquivo", "vaga-texto", "vaga-status");
   configurarUpload("curriculo-arquivo", "curriculo-texto", "curriculo-status");
 
+  function escapeHtml(texto) {
+    const div = document.createElement("div");
+    div.textContent = texto;
+    return div.innerHTML;
+  }
+
+  function classeScore(score) {
+    if (score >= 70) return "score-boa";
+    if (score >= 40) return "score-media";
+    return "score-ruim";
+  }
+
+  function renderizarResultado(corpo) {
+    const { match_score, skills_faltando, skills_parciais, red_flags, confianca, observacoes } = corpo;
+
+    const scoreClasse = classeScore(match_score);
+
+    const skillsFaltandoHtml = skills_faltando.length
+      ? `<ul class="skills-lista">${skills_faltando.map((s) => `<li class="skill-chip">${escapeHtml(s)}</li>`).join("")}</ul>`
+      : `<p class="status">Nenhuma skill crítica ausente identificada.</p>`;
+
+    const skillsParciaisHtml = skills_parciais.length
+      ? skills_parciais.map((sp) => `
+          <div class="skill-parcial">
+            <strong>${escapeHtml(sp.skill)}</strong>
+            ${escapeHtml(sp.motivo)}
+          </div>`).join("")
+      : `<p class="status">Nenhuma skill parcial identificada.</p>`;
+
+    const redFlagsHtml = red_flags.length
+      ? red_flags.map((rf) => `
+          <div class="redflag-card">
+            <div class="titulo">${escapeHtml(rf.titulo)}</div>
+            <div class="descricao">${escapeHtml(rf.descricao)}</div>
+          </div>`).join("")
+      : `<p class="status">Nenhum red flag identificado.</p>`;
+
+    const observacoesHtml = observacoes
+      ? `<div class="observacoes">${escapeHtml(observacoes)}</div>`
+      : "";
+
+    const confiancaBadge = document.getElementById("confianca-badge");
+    confiancaBadge.textContent = `confiança ${confianca}`;
+    confiancaBadge.className = `confianca-badge confianca-${confianca}`;
+    document.getElementById("confianca-bloco").hidden = false;
+
+    document.getElementById("resultado-formatado").innerHTML = `
+      <div>
+        <div class="score-num ${scoreClasse}">${match_score}%</div>
+        <div class="score-legenda">match score</div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3 class="secao-titulo">Skills ausentes</h3>
+        ${skillsFaltandoHtml}
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3 class="secao-titulo">Skills parciais</h3>
+        ${skillsParciaisHtml}
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3 class="secao-titulo">Red flags</h3>
+        ${redFlagsHtml}
+      </div>
+
+      ${observacoesHtml}
+    `;
+  }
+
   document.getElementById("btn-analisar").addEventListener("click", async () => {
     const vaga_texto = document.getElementById("vaga-texto").value.trim();
     const curriculo = document.getElementById("curriculo-texto").value.trim();
     const analiseStatus = document.getElementById("analise-status");
-    const resultado = document.getElementById("resultado");
     const botao = document.getElementById("btn-analisar");
+    const resultadoVazio = document.getElementById("resultado-vazio");
+    const resultadoFormatado = document.getElementById("resultado-formatado");
+    const jsonBruto = document.getElementById("json-bruto");
+    const jsonRaw = document.getElementById("json-raw");
+    const confiancaBloco = document.getElementById("confianca-bloco");
 
     if (!vaga_texto || !curriculo) {
       analiseStatus.textContent = "Preencha a vaga e o currículo antes de analisar.";
@@ -105,7 +344,11 @@
     botao.disabled = true;
     analiseStatus.classList.remove("erro");
     analiseStatus.textContent = "Analisando... (pode levar alguns segundos)";
-    resultado.textContent = "";
+    resultadoVazio.hidden = false;
+    resultadoVazio.textContent = "Analisando...";
+    resultadoFormatado.hidden = true;
+    jsonBruto.hidden = true;
+    confiancaBloco.hidden = true;
 
     try {
       const resposta = await fetch("/analisar", {
@@ -114,17 +357,36 @@
         body: JSON.stringify({ vaga_texto, curriculo }),
       });
 
-      const corpo = await resposta.json();
-      if (!resposta.ok) {
-        throw new Error(JSON.stringify(corpo, null, 2));
+      const textoResposta = await resposta.text();
+      let corpo = null;
+      try {
+        corpo = JSON.parse(textoResposta);
+      } catch {
+        // resposta não veio em JSON (ex: erro genérico de servidor sem handler dedicado)
       }
 
-      resultado.textContent = JSON.stringify(corpo, null, 2);
+      if (!resposta.ok) {
+        const mensagem = corpo?.erro || corpo?.detail ||
+          "Erro inesperado ao consultar o servidor. Tente novamente em alguns instantes.";
+        const detalhe = new Error(mensagem);
+        detalhe.bruto = textoResposta;
+        throw detalhe;
+      }
+
+      renderizarResultado(corpo);
+      resultadoVazio.hidden = true;
+      resultadoFormatado.hidden = false;
+      jsonRaw.textContent = JSON.stringify(corpo, null, 2);
+      jsonBruto.hidden = false;
       analiseStatus.textContent = "Análise concluída.";
     } catch (erro) {
-      analiseStatus.textContent = "Erro na análise — veja detalhes abaixo.";
+      resultadoVazio.hidden = false;
+      resultadoVazio.textContent = "";
+      resultadoFormatado.hidden = true;
+      analiseStatus.textContent = erro.message;
       analiseStatus.classList.add("erro");
-      resultado.textContent = erro.message;
+      jsonRaw.textContent = erro.bruto ?? erro.message;
+      jsonBruto.hidden = false;
     } finally {
       botao.disabled = false;
     }
