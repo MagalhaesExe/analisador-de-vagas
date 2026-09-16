@@ -10,7 +10,16 @@ from pydantic import BaseModel
 
 from app.config import GEMINI_API_KEY
 
-_client = genai.Client(api_key=GEMINI_API_KEY)
+_client = genai.Client(
+    api_key=GEMINI_API_KEY,
+    http_options=types.HttpOptions(
+        retry_options=types.HttpRetryOptions(
+            attempts=4,
+            initial_delay=1.0,
+            max_delay=8.0,
+        ),
+    ),
+)
 
 _MODEL = "gemini-3.1-flash-lite"
 

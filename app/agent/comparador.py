@@ -25,6 +25,11 @@ Regras de julgamento:
   de uma skill crítica, formação em área não relacionada) — não invente red flags \
   que não têm base no texto.
 - justificativa deve resumir em 2-4 frases o raciocínio por trás do score.
+- Escreva justificativa, os títulos/descrições de red_flags e os motivos de \
+  skills_parciais em português formal e objetivo, como um relatório técnico de RH \
+  — frases completas, sem gírias, sem abreviações informais e sem tom de conversa \
+  (ex: evite "meio que", "não rolou", "faltou né"; prefira "não há evidência de", \
+  "o candidato não demonstra").
 
 Vaga (já extraída em estrutura):
 responsabilidades: {responsabilidades}
