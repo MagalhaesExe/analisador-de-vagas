@@ -17,10 +17,10 @@ O pipeline aqui é **determinístico na ordem das etapas**, mas cada etapa usa a
 POST /analisar
      │
      ▼
-┌─────────────┐     ┌───────────────────┐     ┌─────────────┐
-│  1. EXTRAIR │ ──▶ │ 2+3. COMPARAR+     │ ──▶ │  4. VALIDAR │
-│  vaga → JSON│     │ JULGAR (1 chamada) │     │  confiança  │
-└─────────────┘     └───────────────────┘     └─────────────┘
+┌─────────────┐     ┌────────────────────┐     ┌─────────────┐
+│  1. EXTRAIR │ ──▶ │  2+3. COMPARAR+    │ ──▶ │  4. VALIDAR │
+│ vaga → JSON │     │ JULGAR (1 chamada) │     │  confiança  │
+└─────────────┘     └────────────────────┘     └─────────────┘
      LLM                    LLM                  heurística
 ```
 
