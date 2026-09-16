@@ -51,7 +51,7 @@ cp .env.example .env
 .venv/bin/uvicorn app.main:app --reload
 ```
 
-Acesse `http://localhost:8000/docs` pro Swagger UI interativo, ou `http://localhost:8000/static/test.html` pra uma página de teste mais prática: cole o texto da vaga e do currículo direto (sem se preocupar em escapar JSON) ou faça upload de um `.txt`/`.pdf` — o PDF é lido e tem o texto extraído no próprio navegador, via [pdf.js](https://mozilla.github.io/pdf.js/), antes de enviar pro endpoint.
+Acesse `http://localhost:8000/docs` pro Swagger UI interativo, ou `http://localhost:8000/static/test.html` pra uma interface visual mais prática: cole o texto da vaga e do currículo direto (sem se preocupar em escapar JSON) ou faça upload de um `.txt`/`.pdf` — o PDF é lido e tem o texto extraído no próprio navegador, via [pdf.js](https://mozilla.github.io/pdf.js/), antes de enviar pro endpoint. O resultado aparece formatado (score, skills e red flags), com o JSON bruto disponível num painel colapsável.
 
 Currículos e uma vaga real de exemplo estão em `examples/`. Se preferir testar via `curl`/Swagger em vez da página, `scripts/gerar_payload.py` gera o JSON já formatado corretamente a partir de arquivos `.txt` (colar texto multi-linha bruto direto no Swagger quebra o JSON — as quebras de linha precisam vir escapadas):
 
@@ -129,5 +129,5 @@ examples/
 scripts/
 └── gerar_payload.py      # Helper pra montar payloads de teste pro Swagger UI
 static/
-└── test.html             # Página de teste manual (paste ou upload de .txt/.pdf)
+└── test.html             # Interface visual manual (paste ou upload de .txt/.pdf)
 ```
